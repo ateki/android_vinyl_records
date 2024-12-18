@@ -1,6 +1,7 @@
 package com.northcoders.vinylrecords.ui.mainactivity;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -14,6 +15,8 @@ import java.util.List;
 
 public class MainActivityViewModel extends AndroidViewModel {
 
+    private static final String TAG = "MainActivityViewModel";
+
     AlbumRepository albumRepository;
 
     public MainActivityViewModel(@NonNull Application application ) {
@@ -22,6 +25,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Album>> getAllAlbums() {
+        Log.i(TAG, "getAllAlbums");
         return albumRepository.getMutableLiveData();
     }
 

@@ -9,4 +9,8 @@
     <string name="add_an_album_prompt_for_cover_img">Enter url to album cover image</string>
     <string name="add_an_album_prompt_for_quantity">Enter stock quantity</string>
     <string name="add_an_album_btn_txt">Add album</string>
+    <string name="add_a_new_album_speakable_text">Add a new album</string>
+    <string name="display_of_listed_albums_speakable_text">Display of listed albums</string>
+    <string name="add_album_speakable_text">Add Album</string>
+    <string name="go_back_to_previous_screen_speakable_text">Go back to previous screen</string>
 </resources>

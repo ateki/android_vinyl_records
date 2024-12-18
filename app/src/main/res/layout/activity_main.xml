@@ -4,6 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+    <data>
+        <variable
+            name = "clickHandler"
+            type = "com.northcoders.vinylrecords.ui.mainactivity.MainActivityClickHandler"/>
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
@@ -15,20 +22,39 @@
             android:id="@+id/recyclerview"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:contentDescription="@string/display_of_listed_albums_speakable_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
 
-<!--        <TextView-->
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/faButtonAddAlbum"-->
+<!--            android:onClick="@{clickHandler::onAddAlbumBtnClicked}"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
-<!--            android:text="Hello World!"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:layout_marginEnd="16dp"-->
 <!--            app:layout_constraintBottom_toBottomOf="parent"-->
 <!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+<!--            android:src="@drawable/ic_add_circle_24"/>-->
+
+        <!-- Add Album icon -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/faBtnAddAlbum"
+            android:onClick="@{clickHandler::onAddAlbumBtnClicked}"
+            android:contentDescription="@string/add_a_new_album_speakable_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_add_circle_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+<!--        android:layout_gravity="end"-->
+
+<!--        app:fabSize="normal"-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

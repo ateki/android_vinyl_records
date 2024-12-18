@@ -9,13 +9,13 @@ import com.northcoders.vinylrecords.model.Album;
 import com.northcoders.vinylrecords.ui.mainactivity.MainActivity;
 import com.northcoders.vinylrecords.ui.mainactivity.MainActivityViewModel;
 
-public class AddAlbumClickHandlers {
+public class AddAlbumClickHandler {
 
     private Album album;
     private Context context;
     private MainActivityViewModel viewModel;
 
-    public AddAlbumClickHandlers(Album ablum, Context context, MainActivityViewModel viewModel) {
+    public AddAlbumClickHandler(Album ablum, Context context, MainActivityViewModel viewModel) {
         this.album = ablum;
         this.context = context;
         this.viewModel = viewModel;
@@ -23,8 +23,10 @@ public class AddAlbumClickHandlers {
 
     public void onAddBtnClickec(View view) {
         // condition check whether fields are empty
+        // TODO: Whilst debugging removed releaseDate
+        //album.getReleaseDate()==null ||
         if (album.getTitle() == null || album.getArtist()==null || album.getDescription()==null ||
-        album.getGenre()==null || album.getReleaseDate()==null || album.getCoverImg()==null) {
+        album.getGenre()==null ||  album.getCoverImg()==null) {
 
             Toast.makeText(context, "Fields cannot be empty!", Toast.LENGTH_SHORT).show();
 
