@@ -73,6 +73,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/header_image" />
 
+
             <!-- style="@style/TextAppearance.MaterialComponents.Subtitle2" -->
             <TextView
                 android:id="@+id/artist"
