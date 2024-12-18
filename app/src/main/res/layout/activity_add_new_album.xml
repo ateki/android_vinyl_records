@@ -12,6 +12,10 @@
         <variable
             name = "album"
             type = "com.northcoders.vinylrecords.model.Album"/>
+
+        <variable
+            name = "clickHandler"
+            type = "com.northcoders.vinylrecords.ui.addalbum.AddAlbumClickHandlers"/>
     </data>
 
 
@@ -167,8 +171,10 @@
         <!--        android:textColorHighlight="white"-->
         <!--        android:shadowColor="white"-->
         <!-- Could use a FloatingActionButton for add? -->
+        <!-- TODO: Decide on whether to use Button or FAButton for add.  For now keeping both -->
         <Button
             android:id="@+id/btnAddAlbum"
+            android:onClick="@{clickHandler::onAddBtnClickec}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
@@ -190,6 +196,7 @@
         <!-- Go backwards icon -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/faBtnGoBack"
+            android:onClick="@{clickHandler::onGoBackBtnClicked}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -203,6 +210,7 @@
         <!-- Add Album icon -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/faBtnAddAlbum"
+            android:onClick="@{clickHandler::onAddBtnClickec}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

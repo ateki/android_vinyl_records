@@ -36,6 +36,9 @@ public class AddAlbumClickHandlers {
             Toast.makeText(context, "Stock Quantity must not negative number.", Toast.LENGTH_SHORT).show();
 
         } else {
+            // Add new album and
+            // switch back to the MainActivity to show updated album data
+
             Intent intent = new Intent(context, MainActivity.class);
 
             viewModel.addAlbum(album);
@@ -46,6 +49,7 @@ public class AddAlbumClickHandlers {
 
 
     public void onGoBackBtnClicked(View view) {
+        // Switch back to the MainActivity without any further actions
         Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
     }
