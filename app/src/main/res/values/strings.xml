@@ -8,4 +8,5 @@
     <string name="add_an_album_prompt_for_release_date">Enter Release Date</string>
     <string name="add_an_album_prompt_for_cover_img">Enter url to album cover image</string>
     <string name="add_an_album_prompt_for_quantity">Enter stock quantity</string>
+    <string name="add_an_album_btn_txt">Add album</string>
 </resources>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- TODO: Limit size of edit text fields -->
+
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,7 +16,6 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,6 +48,7 @@
             android:text="@={album.title}"
             android:textColor="@color/edit_text"
             android:textColorHint="@color/prompt_hint"
+            android:inputType="text"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="28dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +66,7 @@
             android:text="@={album.artist}"
             android:textColor="@color/edit_text"
             android:textColorHint="@color/prompt_hint"
+            android:inputType="text"
             android:layout_marginBottom="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,6 +83,7 @@
             android:text="@={album.genre}"
             android:textColor="@color/edit_text"
             android:textColorHint="@color/prompt_hint"
+            android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editAlbumArtist"
@@ -96,6 +100,7 @@
             android:text="@={album.description}"
             android:textColor="@color/edit_text"
             android:textColorHint="@color/prompt_hint"
+            android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editAlbumGenre"
@@ -115,7 +120,7 @@
             android:textColorHint="@color/prompt_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editAlbumGenre"
+            app:layout_constraintTop_toBottomOf="@id/editAlbumDescription"
             app:layout_constraintVertical_chainStyle="packed"
             android:minHeight="60dp"/>
 
@@ -141,14 +146,75 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/add_an_album_prompt_for_quantity"
-            android:text="@={album.stockQuantity}"
+            android:text=" @={`` + album.stockQuantity}"
             android:textColor="@color/edit_text"
             android:textColorHint="@color/prompt_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editReleaseDate"
+            app:layout_constraintTop_toBottomOf="@id/editAlbumCoverImgUrl"
             app:layout_constraintVertical_chainStyle="packed"
             android:minHeight="60dp"/>
+
+
+        <!--            android:layout_width="160dp"-->
+        <!--            android:layout_height="110dp"-->
+        <!--        android:width="100dp"-->
+        <!--        android:height="50dp"-->
+
+        <!-- TODO: colour of button when selected, add shadow so get 3 d look -->
+        <!--        android:background="@drawable/button_selector"-->
+        <!--        android:background="@color/btn_add_album"-->
+        <!--        android:textColorHighlight="white"-->
+        <!--        android:shadowColor="white"-->
+        <!-- Could use a FloatingActionButton for add? -->
+        <Button
+            android:id="@+id/btnAddAlbum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:shape="rectangle"
+            android:text="@string/add_an_album_btn_txt"
+            android:textColor="@color/white"
+            android:background="@drawable/button_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editSockQuantity"/>
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/btnBack"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:layout_marginStart="16dp"-->
+
+        <!-- Go backwards icon -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/faBtnGoBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_add_circle_24"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toTopOf="@+id/faBtnAddAlbum"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Add Album icon -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/faBtnAddAlbum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_add_circle_24"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

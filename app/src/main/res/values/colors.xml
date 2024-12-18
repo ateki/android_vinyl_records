@@ -6,6 +6,7 @@
     <color name="header">#FF800040</color>
     <color name="prompt_hint">#87AF69AF</color>
     <color name="edit_text">#FF800040</color>
+    <color name="btn_add_album">#FF800040</color>
 
 
 </resources>
