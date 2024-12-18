@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">VinylRecords</string>
+    <string name="add_an_album_header">Add an album</string>
+    <string name="add_an_album_prompt_for_title">Enter album title</string>
+    <string name="add_an_album_prompt_for_artist">Enter artist</string>
+    <string name="add_an_album_prompt_for_genre">Enter Genre</string>
+    <string name="add_an_album_prompt_for_description">Enter Description</string>
+    <string name="add_an_album_prompt_for_release_date">Enter Release Date</string>
+    <string name="add_an_album_prompt_for_cover_img">Enter url to album cover image</string>
+    <string name="add_an_album_prompt_for_quantity">Enter stock quantity</string>
 </resources>

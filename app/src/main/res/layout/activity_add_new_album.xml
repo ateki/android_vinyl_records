@@ -1,10 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.addalbum.AddNewAlbumActivity">
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name = "album"
+            type = "com.northcoders.vinylrecords.model.Album"/>
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.addalbum.AddNewAlbumActivity">
+
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/editAddAlbumHeader"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="@string/add_an_album_header"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:background="@color/header"
+            android:layout_marginBottom="40dp"
+            android:paddingTop="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Album title -->
+        <EditText
+            android:id="@+id/editAlbumTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_an_album_prompt_for_title"
+            android:text="@={album.title}"
+            android:textColor="@color/edit_text"
+            android:textColorHint="@color/prompt_hint"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editAddAlbumHeader"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:minHeight="60dp"/>
+
+        <!-- Artist -->
+        <EditText
+            android:id="@+id/editAlbumArtist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_an_album_prompt_for_artist"
+            android:text="@={album.artist}"
+            android:textColor="@color/edit_text"
+            android:textColorHint="@color/prompt_hint"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editAlbumTitle"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:minHeight="60dp"/>
+
+        <!-- Genre -->
+        <EditText
+            android:id="@+id/editAlbumGenre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_an_album_prompt_for_genre"
+            android:text="@={album.genre}"
+            android:textColor="@color/edit_text"
+            android:textColorHint="@color/prompt_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editAlbumArtist"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:minHeight="60dp"/>
+
+        <!-- Description -->
+        <!-- TODO: Multi line/scrollable textbox -->
+        <EditText
+            android:id="@+id/editAlbumDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_an_album_prompt_for_description"
+            android:text="@={album.description}"
+            android:textColor="@color/edit_text"
+            android:textColorHint="@color/prompt_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editAlbumGenre"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:minHeight="60dp"/>
+
+
+        <!-- Release Date -->
+        <!-- TODO: Change to some date picker ui -->
+        <EditText
+            android:id="@+id/editReleaseDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_an_album_prompt_for_release_date"
+            android:text="@={album.releaseDate}"
+            android:textColor="@color/edit_text"
+            android:textColorHint="@color/prompt_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editAlbumGenre"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:minHeight="60dp"/>
+
+        <!-- Album Cover Img Url -->
+        <EditText
+            android:id="@+id/editAlbumCoverImgUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_an_album_prompt_for_cover_img"
+            android:text="@={album.coverImg}"
+            android:textColor="@color/edit_text"
+            android:textColorHint="@color/prompt_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editReleaseDate"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:minHeight="60dp"/>
+
+        <!-- Stock Quantity -->
+        <!-- TODO: Any other ui component? -->
+        <EditText
+            android:id="@+id/editSockQuantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_an_album_prompt_for_quantity"
+            android:text="@={album.stockQuantity}"
+            android:textColor="@color/edit_text"
+            android:textColorHint="@color/prompt_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editReleaseDate"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:minHeight="60dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
