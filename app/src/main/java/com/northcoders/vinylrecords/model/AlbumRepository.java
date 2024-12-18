@@ -2,6 +2,7 @@ package com.northcoders.vinylrecords.model;
 
 import android.app.Application;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -44,5 +45,35 @@ public class AlbumRepository {
         });
 
         return mutableLiveData;
+    }
+
+
+    public void addAlbum(Album album) {
+        AlbumApiService albumApiService = RetrofitInstance.getService();
+
+        Call<Album> callback = albumApiService.addAlbum(album);
+
+        // Callback to be invoked on receipt of server response and communicate responses from server: one by one
+        callback.enqueue(new Callback<Album>() {
+
+
+            @Override
+            // Invoked for a received HTTP response
+            public void onResponse(Call<Album> call, Response<Album> response) {
+                Toast.makeText(application.getApplicationContext(), "Album added to database", Toast.LENGTH_SHORT)
+                        .show();
+            }
+
+            @Override
+            // Invoked when network exception occurred communicating with server,
+            // or when unexpected exception occurred creating the request/processing the response
+            public void onFailure(Call<Album> call, Throwable t) {
+                Toast.makeText(application.getApplicationContext(), "Unable to add albumt to database", Toast.LENGTH_SHORT)
+                        .show();
+                Log.e("POST onFailure", t.getMessage());
+            }
+        });
+
+
     }
 }
