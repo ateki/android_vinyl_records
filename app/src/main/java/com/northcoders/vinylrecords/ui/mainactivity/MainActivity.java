@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements RecylerViewInterf
 
     private void displayAlbumsInRecyclerView() {
         recyclerView = binding.recyclerview;  // Needed android:id="@+id/recyclerview" in activity_main.xml else compile error or recyclerview
-        albumAdapter = new AlbumAdapter(albumList);
+        albumAdapter = new AlbumAdapter(albumList, this);
         recyclerView.setAdapter(albumAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

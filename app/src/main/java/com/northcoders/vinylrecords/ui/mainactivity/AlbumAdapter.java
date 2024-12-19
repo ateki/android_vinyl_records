@@ -2,6 +2,7 @@ package com.northcoders.vinylrecords.ui.mainactivity;
 
 import android.text.Layout;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -16,13 +17,19 @@ import java.util.List;
 
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
+
     List<Album> albumList;
     // ArrayList<Album> albumList;
     // TODO: A context object?
     // TODO: Constructor should refer to this? as per Task 7?
 
-    public AlbumAdapter(List<Album> albumList) {
+
+    private final RecylerViewInterface recyclerViewInterface;
+
+    public AlbumAdapter(List<Album> albumList, RecylerViewInterface recyclerViewInterface) {
         this.albumList = albumList;
+        this.recyclerViewInterface = recyclerViewInterface;
+
     }
 
     /**
@@ -37,7 +44,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
                 parent,
                 false
         );
-        return new AlbumViewHolder(binding);
+        return new AlbumViewHolder(binding, recyclerViewInterface);
     }
 
     /**
@@ -60,9 +67,23 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
     public static class AlbumViewHolder extends RecyclerView.ViewHolder {
         private AlbumItemv3Binding binding;
 
-        public AlbumViewHolder(AlbumItemv3Binding albumItemBinding) {
+        public AlbumViewHolder(AlbumItemv3Binding albumItemBinding, RecylerViewInterface recylerViewInterface) {
             super(albumItemBinding.getRoot());
             this.binding = albumItemBinding;
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                        if (recylerViewInterface != null) {
+                            int position = getAdapterPosition();
+
+                            if (position != RecyclerView.NO_POSITION) {
+                                recylerViewInterface.onItemClick(position);
+                            }
+                        }
+                      }
+            });
+
         }
 
     }
