@@ -152,8 +152,8 @@ public class AlbumRepository {
             // Invoked when network exception occurred communicating with server,
             // or when unexpected exception occurred creating the request/processing the response
             public void onFailure(Call<String> call, Throwable t) {
-                //Toast.makeText(application.getApplicationContext(), "Unable to update album to database", Toast.LENGTH_SHORT)
-                //        .show();
+                Toast.makeText(application.getApplicationContext(), "Unable to update album to database", Toast.LENGTH_SHORT)
+                        .show();
                 Log.e("DELETE onFailure", t.getMessage());
             }
         });
