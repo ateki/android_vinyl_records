@@ -41,14 +41,9 @@
             android:textColor="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Instruction Header -->
-
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+        <!-- Instruction Text Header -->
         <TextView
             android:id="@+id/editAddAlbumHeader"
             android:layout_width="0dp"
@@ -101,6 +96,7 @@
             android:minHeight="60dp"/>
 
         <!-- Genre -->
+        <!-- TODO: Drop  Down populated with Genres -->
         <EditText
             android:id="@+id/editAlbumGenre"
             android:layout_width="0dp"
@@ -117,7 +113,6 @@
             android:minHeight="60dp"/>
 
         <!-- Description -->
-        <!-- TODO: Multi line/scrollable textbox -->
         <EditText
             android:id="@+id/editAlbumDescription"
             android:layout_width="0dp"
@@ -136,21 +131,22 @@
 
         <!-- Release Date -->
         <!-- TODO: Change to some date picker ui -->
-<!--        <EditText-->
-<!--            android:id="@+id/editReleaseDate"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="@string/add_an_album_prompt_for_release_date"-->
-<!--            android:text="@={album.releaseDate}"-->
-<!--            android:textColor="@color/edit_text"-->
-<!--            android:textColorHint="@color/prompt_hint"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/editAlbumDescription"-->
-<!--            app:layout_constraintVertical_chainStyle="packed"-->
-<!--            android:minHeight="60dp"/>-->
+        <!--        <EditText-->
+        <!--            android:id="@+id/editReleaseDate"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:hint="@string/add_an_album_prompt_for_release_date"-->
+        <!--            android:text="@={album.releaseDate}"-->
+        <!--            android:textColor="@color/edit_text"-->
+        <!--            android:textColorHint="@color/prompt_hint"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/editAlbumDescription"-->
+        <!--            app:layout_constraintVertical_chainStyle="packed"-->
+        <!--            android:minHeight="60dp"/>-->
 
         <!-- Album Cover Img Url -->
+        <!-- TODO: Image viewer ? -->
         <EditText
             android:id="@+id/editAlbumCoverImgUrl"
             android:layout_width="0dp"
@@ -173,6 +169,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/add_an_album_prompt_for_quantity"
+            android:text="@={`` + album.stockQuantity}"
             android:textColor="@color/edit_text"
             android:textColorHint="@color/prompt_hint"
             app:layout_constraintEnd_toEndOf="parent"
@@ -182,10 +179,7 @@
             android:minHeight="60dp"/>
 
 
-        <!--            android:layout_width="160dp"-->
-        <!--            android:layout_height="110dp"-->
-        <!--        android:width="100dp"-->
-        <!--        android:height="50dp"-->
+
 
         <!-- TODO: colour of button when selected, add shadow so get 3 d look -->
         <!--        android:background="@drawable/button_selector"-->
@@ -208,12 +202,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editSockQuantity"/>
 
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/btnBack"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="16dp"-->
-<!--            android:layout_marginStart="16dp"-->
 
         <!-- Go backwards icon -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -244,9 +232,6 @@
             app:fabSize="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
