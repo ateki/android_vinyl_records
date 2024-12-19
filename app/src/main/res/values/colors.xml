@@ -7,6 +7,16 @@
     <color name="prompt_hint">#87AF69AF</color>
     <color name="edit_text">#FF800040</color>
     <color name="btn_add_album">#FF800040</color>
+    <color name="vinyl_records_header_text">#FFFFFFFF</color>
+    <color name="vinyl_records_header_background">#ffb00075</color>
+    <color name="home_background">#ffb00075</color>
+    <color name="header_instruction">#FF800040</color>
 
 
 </resources>
+
+
+    <!-- Colors used in gradient background -->
+    <!--    <color name="startColor">#5C6BC0</color>-->
+    <!--    <color name="centerColor">#ffb00075</color>-->
+    <!--    <color name="endColor">#5C6BC0</color>-->

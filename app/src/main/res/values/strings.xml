@@ -13,4 +13,5 @@
     <string name="display_of_listed_albums_speakable_text">Display of listed albums</string>
     <string name="add_album_speakable_text">Add Album</string>
     <string name="go_back_to_previous_screen_speakable_text">Go back to previous screen</string>
+    <string name="vinyl_records_header_text">Vinyl Records</string>
 </resources>

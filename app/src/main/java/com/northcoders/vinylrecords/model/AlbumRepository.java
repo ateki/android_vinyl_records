@@ -67,9 +67,6 @@ public class AlbumRepository {
             // Invoked for a received HTTP response
             public void onResponse(Call<Album> call, Response<Album> response) {
                 Log.i("POST onResponse: response.message:", response.message());
-//                Log.i("POST onResponse: response.body:", response.body().toString());
-//                Log.i("POST onResponse: response.isSuccessful:", String.valueOf(response.isSuccessful()));
-
                 Toast.makeText(application.getApplicationContext(), "Album added to database", Toast.LENGTH_SHORT)
                         .show();
             }
@@ -78,6 +75,7 @@ public class AlbumRepository {
             // Invoked when network exception occurred communicating with server,
             // or when unexpected exception occurred creating the request/processing the response
             public void onFailure(Call<Album> call, Throwable t) {
+                // TODO: give more details as to wh
                 Toast.makeText(application.getApplicationContext(), "Unable to add album to database", Toast.LENGTH_SHORT)
                         .show();
                 Log.e("POST onFailure", t.getMessage());
