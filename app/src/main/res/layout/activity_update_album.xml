@@ -15,9 +15,8 @@
 
         <variable
             name = "clickHandler"
-            type = "com.northcoders.vinylrecords.ui.updatealbum.UpdateAlbumClickHandler"/>
+                type = "com.northcoders.vinylrecords.ui.updatealbum.UpdateAlbumClickHandler"/>
     </data>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
