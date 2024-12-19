@@ -22,7 +22,7 @@ import com.northcoders.vinylrecords.model.AlbumRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecylerViewInterface {
 
     private RecyclerView recyclerView;
     private ArrayList<Album> albumList;  // List??
@@ -87,4 +87,7 @@ public class MainActivity extends AppCompatActivity {
         albumAdapter.notifyDataSetChanged();
     }
 
+    public void onItemClick(int position) {
+
+    }
 }

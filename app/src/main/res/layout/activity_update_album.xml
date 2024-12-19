@@ -16,7 +16,7 @@
 
         <variable
             name = "clickHandler"
-            type = "com.northcoders.vinylrecords.ui.addalbum.AddAlbumClickHandler"/>
+            type = "com.northcoders.vinylrecords.ui.updatealbum.UpdateAlbumClickHandler"/>
     </data>
 
 
