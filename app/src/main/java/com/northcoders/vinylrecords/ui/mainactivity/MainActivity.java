@@ -1,5 +1,6 @@
 package com.northcoders.vinylrecords.ui.mainactivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.northcoders.vinylrecords.R;
 import com.northcoders.vinylrecords.databinding.ActivityMainBinding;
 import com.northcoders.vinylrecords.model.Album;
+import com.northcoders.vinylrecords.ui.updatealbum.UpdateAlbumActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     private MainActivityViewModel viewModel;
 
     private MainActivityClickHandler handler;
+
+    private final static String ALBUM_KEY = "album";
 
 
     @Override
@@ -82,6 +86,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     }
 
     public void onItemClick(int position) {
+        Intent intent = new Intent(MainActivity.this, UpdateAlbumActivity.class);
 
+        intent.putExtra(ALBUM_KEY, albumList.get(position));
+
+        startActivity(intent);
     }
 }
