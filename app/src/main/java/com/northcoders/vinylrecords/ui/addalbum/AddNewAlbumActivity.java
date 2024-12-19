@@ -25,8 +25,6 @@ public class AddNewAlbumActivity extends AppCompatActivity {
     private Album album;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

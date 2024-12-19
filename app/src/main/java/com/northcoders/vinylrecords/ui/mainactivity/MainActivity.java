@@ -30,11 +30,12 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private MainActivityViewModel viewModel;
 
+    private MainActivityClickHandler handler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         binding = DataBindingUtil.setContentView(
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel = new ViewModelProvider(this)
                 .get(MainActivityViewModel.class);
+
+        handler = new MainActivityClickHandler(this);
+        binding.setClickHandler(handler);
 
 
         getAllAlbums();

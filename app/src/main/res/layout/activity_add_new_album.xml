@@ -145,12 +145,12 @@
 
         <!-- Stock Quantity -->
         <!-- TODO: Any other ui component? -->
+        <!-- TODO   android:text="@={`` + album.stockQuantity}" -->
         <EditText
             android:id="@+id/editSockQuantity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/add_an_album_prompt_for_quantity"
-            android:text=" @={`` + album.stockQuantity}"
             android:textColor="@color/edit_text"
             android:textColorHint="@color/prompt_hint"
             app:layout_constraintEnd_toEndOf="parent"
@@ -174,7 +174,7 @@
         <!-- TODO: Decide on whether to use Button or FAButton for add.  For now keeping both -->
         <Button
             android:id="@+id/btnAddAlbum"
-            android:onClick="@{clickHandler::onAddBtnClickec}"
+            android:onClick="@{clickHandler::onAddBtnClicked}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
@@ -203,7 +203,7 @@
             android:layout_gravity="end"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_add_circle_24"
+            android:src="@drawable/ic_round_arrow_back_24"
             app:fabSize="normal"
             app:layout_constraintBottom_toTopOf="@+id/faBtnAddAlbum"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -211,7 +211,7 @@
         <!-- Add Album icon -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/faBtnAddAlbum"
-            android:onClick="@{clickHandler::onAddBtnClickec}"
+            android:onClick="@{clickHandler::onAddBtnClicked}"
             android:contentDescription="@string/add_album_speakable_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

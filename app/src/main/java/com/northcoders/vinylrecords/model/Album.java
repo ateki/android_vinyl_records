@@ -46,7 +46,7 @@ public class Album extends BaseObservable {
 
     public void setId(long id) {
         this.id = id;
-        notifyPropertyChanged(BR.id);
+        // notifyPropertyChanged(BR.id);
     }
 
     @Bindable
