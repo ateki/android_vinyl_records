@@ -5,11 +5,9 @@ import androidx.databinding.Bindable;
 
 import com.northcoders.vinylrecords.BR;
 
-import java.time.LocalDate;
-
 public class Album extends BaseObservable {
 
-    private long id;
+    private Long id;
     private String title;
     private String description;
     private String artist;
@@ -40,11 +38,11 @@ public class Album extends BaseObservable {
     }
 
     @Bindable
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
         // notifyPropertyChanged(BR.id);
     }
