@@ -22,7 +22,8 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.addalbum.AddNewAlbumActivity">
+        tools:context=".ui.addalbum.AddNewAlbumActivity"
+        android:background="@color/updatealbum_background">
 
 
         <!-- Image Header -->
