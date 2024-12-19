@@ -1,13 +1,8 @@
 package com.northcoders.vinylrecords.ui.mainactivity;
 
-import android.app.Application;
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -17,12 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.northcoders.vinylrecords.R;
 import com.northcoders.vinylrecords.databinding.ActivityMainBinding;
 import com.northcoders.vinylrecords.model.Album;
-import com.northcoders.vinylrecords.model.AlbumRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements RecylerViewInterface {
+public class MainActivity extends AppCompatActivity implements RecyclerViewInterface {
 
     private RecyclerView recyclerView;
     private ArrayList<Album> albumList;  // List??

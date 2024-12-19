@@ -1,6 +1,5 @@
 package com.northcoders.vinylrecords.ui.mainactivity;
 
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +23,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
     // TODO: Constructor should refer to this? as per Task 7?
 
 
-    private final RecylerViewInterface recyclerViewInterface;
+    private final RecyclerViewInterface recyclerViewInterface;
 
-    public AlbumAdapter(List<Album> albumList, RecylerViewInterface recyclerViewInterface) {
+    public AlbumAdapter(List<Album> albumList, RecyclerViewInterface recyclerViewInterface) {
         this.albumList = albumList;
         this.recyclerViewInterface = recyclerViewInterface;
 
@@ -64,10 +63,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
         return albumList.size();
     }
 
+
     public static class AlbumViewHolder extends RecyclerView.ViewHolder {
+
         private AlbumItemv3Binding binding;
 
-        public AlbumViewHolder(AlbumItemv3Binding albumItemBinding, RecylerViewInterface recylerViewInterface) {
+        public AlbumViewHolder(AlbumItemv3Binding albumItemBinding, RecyclerViewInterface recylerViewInterface) {
             super(albumItemBinding.getRoot());
             this.binding = albumItemBinding;
 
