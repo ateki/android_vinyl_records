@@ -15,9 +15,8 @@
 
         <variable
             name = "clickHandler"
-            type = "com.northcoders.vinylrecords.ui.addalbum.AddAlbumClickHandler"/>
+                type = "com.northcoders.vinylrecords.ui.updatealbum.UpdateAlbumClickHandler"/>
     </data>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
@@ -63,7 +62,7 @@
             android:id="@+id/editAddAlbumHeader"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:text="@string/add_an_album_header"
+            android:text="@string/update_an_album_header"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textSize="24sp"
@@ -112,22 +111,24 @@
 
         <!-- Genre -->
         <!-- TODO: Drop  Down populated with Genres -->
+
+        <!-- Description -->
         <EditText
             android:id="@+id/editAlbumGenre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/add_an_album_prompt_for_genre"
+            android:inputType="text"
+            android:minHeight="60dp"
             android:text="@={album.genre}"
             android:textColor="@color/edit_text"
             android:textColorHint="@color/prompt_hint"
-            android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editAlbumArtist"
-            app:layout_constraintVertical_chainStyle="packed"
-            android:minHeight="60dp"/>
+            app:layout_constraintVertical_chainStyle="packed" />
 
-        <!-- Description -->
         <EditText
             android:id="@+id/editAlbumDescription"
             android:layout_width="0dp"
@@ -179,21 +180,6 @@
         <!-- Stock Quantity -->
         <!-- TODO: Any other ui component? -->
         <!-- TODO   android:text="@={`` + album.stockQuantity}" -->
-        <EditText
-            android:id="@+id/editSockQuantity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/add_an_album_prompt_for_quantity"
-            android:text="@={`` + album.stockQuantity}"
-            android:textColor="@color/edit_text"
-            android:textColorHint="@color/prompt_hint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editAlbumCoverImgUrl"
-            app:layout_constraintVertical_chainStyle="packed"
-            android:minHeight="60dp"/>
-
-
 
 
         <!-- TODO: colour of button when selected, add shadow so get 3 d look -->
@@ -201,21 +187,50 @@
         <!--        android:background="@color/btn_add_album"-->
         <!--        android:textColorHighlight="white"-->
         <!--        android:shadowColor="white"-->
-        <!-- Could use a FloatingActionButton for add? -->
+        <!-- Could use a FloatingActionButton for update? -->
         <!-- TODO: Decide on whether to use Button or FAButton for add.  For now keeping both -->
+        <EditText
+            android:id="@+id/editSockQuantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_an_album_prompt_for_quantity"
+            android:minHeight="60dp"
+            android:text="@={`` + album.stockQuantity}"
+            android:textColor="@color/edit_text"
+            android:textColorHint="@color/prompt_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editAlbumCoverImgUrl"
+            app:layout_constraintVertical_chainStyle="packed" />
+
         <Button
-            android:id="@+id/btnAddAlbum"
-            android:onClick="@{clickHandler::onAddBtnClicked}"
+            android:id="@+id/btnUpdateAlbum"
+            android:onClick="@{clickHandler::onUpdateBtnClicked}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
             android:shape="rectangle"
-            android:text="@string/add_an_album_btn_txt"
+            android:text="@string/update_an_album_btn_txt"
             android:textColor="@color/white"
             android:background="@drawable/button_selector"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editSockQuantity"/>
+
+        <Button
+            android:id="@+id/btnDeleteAlbum"
+            android:onClick="@{clickHandler::onDeleteBtnClicked}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:shape="rectangle"
+            android:text="@string/delete_an_album_btn_txt"
+            android:textColor="@color/white"
+            android:background="@drawable/button_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnUpdateAlbum"/>
 
 
         <!-- Go backwards icon -->
@@ -230,23 +245,24 @@
             android:layout_marginBottom="16dp"
             android:src="@drawable/ic_round_arrow_back_24"
             app:fabSize="normal"
-            app:layout_constraintBottom_toTopOf="@+id/faBtnAddAlbum"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Add Album icon -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/faBtnAddAlbum"
-            android:onClick="@{clickHandler::onAddBtnClicked}"
-            android:contentDescription="@string/add_album_speakable_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_add_circle_24"
-            app:fabSize="normal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+<!--        &lt;!&ndash; Update Album icon &ndash;&gt;-->
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/faBtnAddAlbum"-->
+<!--            android:onClick="@{clickHandler::onUpdateBtnClicked}"-->
+<!--            android:contentDescription="@string/update_an_album_speakable_text"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:src="@drawable/ic_add_circle_24"-->
+<!--            app:fabSize="normal"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

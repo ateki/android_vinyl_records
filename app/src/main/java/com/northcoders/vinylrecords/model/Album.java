@@ -1,11 +1,15 @@
 package com.northcoders.vinylrecords.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
 import com.northcoders.vinylrecords.BR;
 
-public class Album extends BaseObservable {
+public class Album extends BaseObservable implements Parcelable {
 
     private Long id;
     private String title;
@@ -36,6 +40,39 @@ public class Album extends BaseObservable {
         this.coverImg = coverImg;
         this.stockQuantity = stockQuantity;
     }
+
+    /**
+     * Reads from Parcel when its receive in the destination activity,
+     * passing the object data stored in the Parcel into an Album object.
+     * @param in
+     */
+    protected Album(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readLong();
+        }
+        title = in.readString();
+        description = in.readString();
+        artist = in.readString();
+        genre = in.readString();
+        releaseDate = in.readString();
+        releaseYear = in.readInt();
+        coverImg = in.readString();
+        stockQuantity = in.readInt();
+    }
+
+    public static final Creator<Album> CREATOR = new Creator<Album>() {
+        @Override
+        public Album createFromParcel(Parcel in) {
+            return new Album(in);
+        }
+
+        @Override
+        public Album[] newArray(int size) {
+            return new Album[size];
+        }
+    };
 
     @Bindable
     public Long getId() {
@@ -121,5 +158,34 @@ public class Album extends BaseObservable {
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
         notifyPropertyChanged(BR.stockQuantity);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    /**
+     * When destination activity is launched, this method will write the object to a Parcel object
+     * @param dest The Parcel in which the object should be written.
+     * @param flags Additional flags about how the object should be written.
+     * May be 0 or {@link #PARCELABLE_WRITE_RETURN_VALUE}.
+     */
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(id);
+        }
+        dest.writeString(title);
+        dest.writeString(description);
+        dest.writeString(artist);
+        dest.writeString(genre);
+        dest.writeString(releaseDate);
+        dest.writeInt(releaseYear);
+        dest.writeString(coverImg);
+        dest.writeInt(stockQuantity);
     }
 }
