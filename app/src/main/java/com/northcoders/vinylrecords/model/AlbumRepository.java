@@ -85,74 +85,78 @@ public class AlbumRepository {
 
     }
 
-//
-//        public void updateAlbum(long id, Album album) {
-//            Log.i(TAG,"updateAlbum called");
-//
-//            AlbumApiService albumApiService = RetrofitInstance.getService();
-//
-//            Call<Album> callback = albumApiService.updateAlbum(id,album);
-//
-//            // Callback to be invoked on receipt of server response and communicate responses from server: one by one
-//            callback.enqueue(new Callback<Album>() {
-//
-//                @Override
-//                // Invoked for a received HTTP response
-//                public void onResponse(Call<Album> call, Response<Album> response) {
-//                    // TODO Handle diff responses - how can they be handled here. Add extra
-//                    // successful on update, send popup
-//                    // We could do other things
-//                    // if (response.code() == 200) ...do this..
-//                    // if didnt get response wanted but did not fail do something...
-//                    Toast.makeText(application.getApplicationContext(), "Album updated ", Toast.LENGTH_SHORT)
-//                            .show();
-//                }
-//
-//                @Override
-//                // Invoked when network exception occurred communicating with server,
-//                // or when unexpected exception occurred creating the request/processing the response
-//                public void onFailure(Call<Album> call, Throwable t) {
-//                    Toast.makeText(application.getApplicationContext(), "Unable to update album to database", Toast.LENGTH_SHORT)
-//                            .show();
-//                    Log.e("POST onFailure", t.getMessage());
-//                }
-//            });
-//        }
-//
-//        // TODO: repeating much code here so could refactor to make DRY
-//
-//    public void deleteAlbum(long id ) {
-//        Log.i(TAG,"deleteAlbum called");
-//
-//        AlbumApiService albumApiService = RetrofitInstance.getService();
-//
-//        Call<String> callback = albumApiService.deleteAlbum(id);
-//
-//        // Callback to be invoked on receipt of server response and communicate responses from server: one by one
-//        // use string get back..
-//        callback.enqueue(new Callback<String>() {
-//
-//            @Override
-//            // Invoked for a received HTTP response
-//            public void onResponse(Call<String> call, Response<String> response) {
-//                // TODO Handle diff responses - how can they be handled here. Add extra
-//                // successful on update, send popup
-//                // We could do other things
-//                // if (response.code() == 200) ...do this..
-//                // if didnt get response wanted but did not fail do something...
-//                Toast.makeText(application.getApplicationContext(), response.body(), Toast.LENGTH_SHORT)
-//                        .show();
-//            }
-//
-//            @Override
-//            // Invoked when network exception occurred communicating with server,
-//            // or when unexpected exception occurred creating the request/processing the response
-//            public void onFailure(Call<String> call, Throwable t) {
-//                Toast.makeText(application.getApplicationContext(), "Unable to update album to database", Toast.LENGTH_SHORT)
-//                        .show();
-//                Log.e("POST onFailure", t.getMessage());
-//            }
-//        });
-//    }
+
+    public void updateAlbum(long id, Album album) {
+            Log.i(TAG,"updateAlbum called");
+
+            AlbumApiService albumApiService = RetrofitInstance.getService();
+
+            Call<Album> callback = albumApiService.updateAlbum(id,album);
+
+            // Used to initiate an asynchronous HTTP request and get the response from the server.
+            // Is typically used to execute the request on a background thread, which is internally managed by Retrofit.
+            // The response is delivered on the main thread. The Callback is invoked when the request is completed.
+
+            callback.enqueue(new Callback<Album>() {
+
+                @Override
+                // Invoked for a received HTTP response
+                public void onResponse(Call<Album> call, Response<Album> response) {
+                    // TODO Handle diff responses - how can they be handled here. Add extra
+                    // code to do alt with response.code()?
+                    // ie
+                    //  if (response.code() == 200) ...do this..
+                    //  if didn't get response wanted but did not fail do something...
+
+                    Toast.makeText(application.getApplicationContext(), "Album updated ", Toast.LENGTH_SHORT)
+                            .show();
+                }
+
+                @Override
+                // Invoked when network exception occurred communicating with server,
+                // or when unexpected exception occurred creating the request/processing the response
+                public void onFailure(Call<Album> call, Throwable t) {
+                    Toast.makeText(application.getApplicationContext(), "Unable to update album to database", Toast.LENGTH_SHORT)
+                            .show();
+                    Log.e("PUT onFailure", t.getMessage());
+                }
+            });
+    }
+
+        // TODO: repeating much code here so could refactor to make DRY
+
+    public void deleteAlbum(long id ) {
+        Log.i(TAG,"deleteAlbum called");
+
+        AlbumApiService albumApiService = RetrofitInstance.getService();
+
+        Call<String> callback = albumApiService.deleteAlbum(id);
+
+        // Callback to be invoked on receipt of server response and communicate responses from server: one by one
+        // use string get back..
+        callback.enqueue(new Callback<String>() {
+
+            @Override
+            // Invoked for a received HTTP response
+            public void onResponse(Call<String> call, Response<String> response) {
+                // TODO Handle diff responses - how can they be handled here. Add extra
+                // successful on update, send popup
+                // We could do other things
+                // if (response.code() == 200) ...do this..
+                // if didnt get response wanted but did not fail do something...
+                Toast.makeText(application.getApplicationContext(), response.body(), Toast.LENGTH_SHORT)
+                        .show();
+            }
+
+            @Override
+            // Invoked when network exception occurred communicating with server,
+            // or when unexpected exception occurred creating the request/processing the response
+            public void onFailure(Call<String> call, Throwable t) {
+                //Toast.makeText(application.getApplicationContext(), "Unable to update album to database", Toast.LENGTH_SHORT)
+                //        .show();
+                Log.e("DELETE onFailure", t.getMessage());
+            }
+        });
+    }
 
 }
