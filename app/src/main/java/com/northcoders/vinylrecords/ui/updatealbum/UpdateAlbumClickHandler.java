@@ -2,6 +2,7 @@ package com.northcoders.vinylrecords.ui.updatealbum;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -12,24 +13,32 @@ import com.northcoders.vinylrecords.ui.mainactivity.MainActivityViewModel;
 import java.util.Objects;
 
 public class UpdateAlbumClickHandler {
+
+    private final static String TAG = "UpdateAlbumClickHandler";
     private Album album;
-    private MainActivityViewModel mainActivityViewModel;
     private long albumId;
     private Context context;
+    private MainActivityViewModel viewModel;
 
-    public UpdateAlbumClickHandler(Album album, MainActivityViewModel mainActivityViewModel, Context context) {
+    public UpdateAlbumClickHandler(Album album, Context context, MainActivityViewModel viewModel) {
         this.album = album;
-        this.mainActivityViewModel = mainActivityViewModel;
+        this.viewModel = viewModel;
         this.context = context;
+        Log.i(TAG, "constructor called");
     }
 
     
-    public void onBackBtnClicked(View view) {
+    public void onGoBackBtnClicked(View view) {
+        Log.i(TAG, "::onGoBackBtnClicked");
+        // Switch back to the MainActivity without any further actions
         Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
     }
     
     public void onUpdateBtnClicked(View view) {
+
+        // Update album and switch back to MainActivity
+        Log.i(TAG, "::onUpdateBtnClicked to update "+  album.toString());
 
         Album updatedAlbum = new Album(
             album.getId(),
@@ -54,20 +63,23 @@ public class UpdateAlbumClickHandler {
             Toast.makeText(context, "Stock Quantity cannot be negative.", Toast.LENGTH_SHORT).show();
             
         } else {
+
             Intent intent = new Intent(context, MainActivity.class);
 
             long albumId = album.getId();
 
-            mainActivityViewModel.updateAlbum(albumId, updatedAlbum);
+            viewModel.updateAlbum(albumId, updatedAlbum);
 
             context.startActivity(intent);
         }
     }
 
     public void onDeleteBtnClicked(View view) {
+        Log.i(TAG, "::onDeleteBtnClicked");
+        // Delete album and swithc back to MainActivity
         Intent intent = new Intent(context, MainActivity.class);
 
-        mainActivityViewModel.deleteAlbum(album.getId());
+        viewModel.deleteAlbum(album.getId());
 
         context.startActivity(intent);
     }

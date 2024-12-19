@@ -20,6 +20,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewInterface {
 
+    private static final String TAG = "MainActivity";
     private RecyclerView recyclerView;
     private ArrayList<Album> albumList;  // List??
     private AlbumAdapter albumAdapter;
@@ -45,22 +46,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
                 .get(MainActivityViewModel.class);
 
         handler = new MainActivityClickHandler(this);
+
         binding.setClickHandler(handler);
 
-
         getAllAlbums();
-
-
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
-
-//        Application application = new Application();
-//        AlbumRepository albumRepository = new AlbumRepository(application);
-//
-//        albumRepository.getMutableLiveData();
     }
 
     private void getAllAlbums() {
