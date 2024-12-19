@@ -43,6 +43,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- Header Text -->
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:text="@string/vinyl_records_header_text"
+            android:gravity="start"
+            android:textStyle="italic"
+            android:textSize="30sp"
+            android:textColor="@color/vinyl_records_header_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <!-- Instruction Text Header -->
         <TextView
             android:id="@+id/editAddAlbumHeader"
