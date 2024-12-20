@@ -82,7 +82,7 @@
 <!--        android:textAlignment="left"-->
         <!-- Header Text -->
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/vinylRecordsText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="30dp"
@@ -95,15 +95,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <!-- Search widget to filter albums -->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            app:queryHint="Search title ..."
+            app:iconifiedByDefault="false"
+            android:layout_margin="20dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vinylRecordsHeader" />
+<!--        android:background="@drawable/search_view_bg"-->
+<!--        android:background="@drawable/gradient_background"-->
+<!--        android:background="@drawable/rectangle_search_view"-->
+<!--        android:background="#f00"-->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/display_of_listed_albums_speakable_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vinylRecordsHeader"/>
+            app:layout_constraintTop_toBottomOf="@+id/searchView"/>
 
 <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
 <!--            android:id="@+id/faButtonAddAlbum"-->
