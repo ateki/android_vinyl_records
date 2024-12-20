@@ -25,23 +25,29 @@ public class UpdateAlbumActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Log.i(TAG, "onCreate called");
         setContentView(R.layout.activity_update_album);
 
         album = getIntent().getParcelableExtra(ALBUM_KEY, Album.class);
 
+        // Setup data binding
         binding = DataBindingUtil.setContentView(
                 this,
                 R.layout.activity_update_album
         );
 
+        // Setup view point
         MainActivityViewModel viewModel = new ViewModelProvider(this)
                 .get(MainActivityViewModel.class);
 
+        // Setup handler
         handler = new UpdateAlbumClickHandler(album, this, viewModel);
 
+        // Bind album data to view
         binding.setAlbum(album);
 
+        // Bind click handler to view
         binding.setClickHandler(handler);
     }
 }
