@@ -1,5 +1,6 @@
 package com.northcoders.vinylrecords.ui.mainactivity;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +13,12 @@ import com.northcoders.vinylrecords.R;
 import com.northcoders.vinylrecords.databinding.AlbumItemv3Binding;
 import com.northcoders.vinylrecords.model.Album;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
 
-
+    private final static String TAG = "AlbumAdapter";
     List<Album> albumList;
     // ArrayList<Album> albumList;
     // TODO: A context object?
@@ -61,6 +63,15 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
     @Override
     public int getItemCount() {
         return albumList.size();
+    }
+
+    public void setFilteredAlbumList(ArrayList<Album> filteredAlbumList) {
+
+        Log.i(TAG, "filterAlbumList::filteredAlbumList setFilteredAlbumList = " +filteredAlbumList);
+        this.albumList = filteredAlbumList;
+        // Notify any observers of data change
+        // TODO: Be more specific on who to be notified
+        notifyDataSetChanged();
     }
 
 
