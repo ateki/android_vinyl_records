@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.i(TAG, "onCreate called");
         setContentView(R.layout.activity_main);
 
         binding = DataBindingUtil.setContentView(
@@ -109,12 +111,18 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     }
 
     private void getAllAlbums() {
+
+        Log.i(TAG, "getAllAlbums called");
+
         viewModel.getAllAlbums().observe(this, new Observer<List<Album>>() {
             @Override
             public void onChanged(List<Album> albumsFromLiveData) {
+                Log.i(TAG, "getAllAlbums.observe.onChanged triggered");
                 // albums refers to the variable name of your List of Album objects
                 // albumsFromLiveData is cast to this type
                 albumList = (ArrayList<Album>) albumsFromLiveData;
+
+                Log.i(TAG, "getAllAlbums.observe.onChanged triggered");
 
                 displayAlbumsInRecyclerView();
             }
@@ -122,11 +130,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     }
 
     private void displayAlbumsInRecyclerView() {
+
+        Log.i(TAG, "displayAlbumsInRecyclerView started..");
         recyclerView = binding.recyclerview;  // Needed android:id="@+id/recyclerview" in activity_main.xml else compile error or recyclerview
         albumAdapter = new AlbumAdapter(albumList, this);
         recyclerView.setAdapter(albumAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
+        Log.i(TAG, "displayAlbumsInRecyclerView calling albumAdapter.notifyDataSetChanged()");
         albumAdapter.notifyDataSetChanged();
         // TODO Use more specific change events rather than notifyDataSetChanged,
         //  so that LayoutManager does not need to rebind everything and layout all visible views
